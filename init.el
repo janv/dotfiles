@@ -76,4 +76,12 @@
 (if (file-exists-p user-specific-dir)
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 
+;emacs-nav config
+(add-to-list 'load-path (concat user-specific-dir "/nav"))
+(require 'nav)
+(nav-disable-overeager-window-splitting)
+;; Optional: set up a quick key to toggle nav
+(global-set-key [f8] 'nav-toggle)
+
+
 ;;; init.el ends here
