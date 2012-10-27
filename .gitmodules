@@ -1,0 +1,6 @@
+[submodule "jan/coffee-mode"]
+	path = jan/coffee-mode
+	url = git://github.com/defunkt/coffee-mode.git
+[submodule "jan/textmate"]
+	path = jan/textmate
+	url = git://github.com/defunkt/textmate.el.git

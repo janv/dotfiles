@@ -76,12 +76,36 @@
 (if (file-exists-p user-specific-dir)
   (mapc #'load (directory-files user-specific-dir nil ".*el$")))
 
-;emacs-nav config
+(setenv "PATH"
+        "/Users/jan/.rbenv/shims:/Users/jan/.rbenv/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11R6/bin")
+
+;;emacs-nav config
 (add-to-list 'load-path (concat user-specific-dir "/nav"))
 (require 'nav)
 (nav-disable-overeager-window-splitting)
 ;; Optional: set up a quick key to toggle nav
 (global-set-key [f8] 'nav-toggle)
 
+;;HAML Mode
+(require 'haml-mode)
+
+;;coffee-mode
+(add-to-list 'load-path (concat user-specific-dir "/coffee-mode"))
+(require 'coffee-mode)
+
+(define-key coffee-mode-map  (kbd "S-r") 'coffee-compile-region)
+
+;;textmate.el
+(add-to-list 'load-path (concat user-specific-dir "/textmate"))
+(require 'textmate)
+(textmate-mode)
+
+(setq tab-width 2)
+(setq tab-stop-list (number-sequence 2 200 2))
+
+(custom-set-variables
+ '(coffee-tab-width 2)
+ '(indent-tabs-mode nil)
+ '(tab-width 2))
 
 ;;; init.el ends here
