@@ -100,6 +100,15 @@
 (require 'textmate)
 (textmate-mode)
 
+;;haskell-mode
+(add-to-list 'load-path (concat user-specific-dir "/haskell-mode"))
+(require 'haskell-mode)
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+
 (setq tab-width 2)
 (setq tab-stop-list (number-sequence 2 200 2))
 
