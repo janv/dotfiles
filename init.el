@@ -115,6 +115,24 @@
 (custom-set-variables
  '(coffee-tab-width 2)
  '(indent-tabs-mode nil)
- '(tab-width 2))
+ '(tab-width 2)
+ '(show-trailing-whitespace t)
+ '(cua-enable-cua-keys nil))
+
+(defun select-next-window ()
+  "Switch to the next window"
+  (interactive)
+  (select-window (next-window)))
+
+(defun select-previous-window ()
+  "Switch to the previous window"
+  (interactive)
+  (select-window (previous-window)))
+
+(global-set-key (kbd "s-<right>") 'select-next-window)
+(global-set-key (kbd "s-<left>")  'select-previous-window)
+
+
+(cua-mode 1)
 
 ;;; init.el ends here
